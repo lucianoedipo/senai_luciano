@@ -1,0 +1,9 @@
+
+ SSSSS  EEEEE  N   N  AAA   III
+SS      E      NN  N A   A   I 
+ SSSSS  EEEE   N N N AAAAA   I 
+     SS E      N  NN A   A   I 
+ SSSSS  EEEEE  N   N A   A  III
+
+:: Built with Spring Boot :: ${spring-boot.version}
+

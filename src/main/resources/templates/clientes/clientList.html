@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Lista de Clientes</title>
+</head>
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <h2>Lista de Clientes</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <!-- Adicione mais cabeçalhos conforme necessário -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cliente : ${listClientes}">
+            <td th:text="${cliente.lastName}"></td>
+            <!-- Adicione mais colunas conforme necessário -->
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <ul>
+            <li th:if="${currentPage > 1}">
+                <a th:href="@{'/clientes?page=' + (currentPage - 1)}">Anterior</a>
+            </li>
+            <li th:each="page : ${#numbers.sequence(1, totalPages)}">
+                <a th:href="@{'/clientes?page=' + ${page}}"><span th:text="${page}"></span></a>
+            </li>
+            <li th:if="${currentPage < totalPages}">
+                <a th:href="@{'/clientes?page=' + (currentPage + 1)}">Próxima</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

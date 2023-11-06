@@ -1,0 +1,30 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'clientes')}">
+
+<body>
+
+  <h2>Cliente</h2>
+  <form th:object="${cliente}" class="form-horizontal" id="add-cliente-form" method="post">
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('Nome', 'nome', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Sobrenome', 'sobrenome', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Endereço', 'endereco', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Cidade', 'cidade', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Telefone', 'telefone', 'text')}" />
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${cliente['new']} ? 'Adicionar Cliente' : 'Atualizar Cliente'"
+          class="btn btn-primary" type="submit" th:text="${text}">Adicionar
+          Cliente</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

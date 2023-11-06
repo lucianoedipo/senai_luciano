@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"th:replace="~{fragments/layout :: layout (~{::body},'clientes')}">
+
+<head>
+    <title>Detalhes do Cliente</title>
+</head>
+
+<body>
+
+<div layout:fragment="content" class="container">
+
+    <h2>Detalhes do Cliente</h2>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <td th:text="${cliente.lastName}"></td>
+        </tr>
+        <!-- Adicione mais informações conforme necessário -->
+    </table>
+
+    <a th:href="@{'/clientes/' + ${cliente.id} + '/edit'}" class="btn btn-primary">Editar Cliente</a>
+    <!-- Adicione mais links ou botões conforme necessário -->
+
+</div>
+
+</body>
+</html>
